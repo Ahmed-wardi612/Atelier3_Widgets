@@ -12,3 +12,8 @@
 **Palier 4**
 // Q7 : spacer prend tout l’espace libre dans une Row. Sans Expanded, la Column ne connait pas sa largeur exacte, ce qui donne une erreur. Expanded lui donne l’espace restant. //
 // Q8 : Pour ajouter une 7e destination, il faut ajouter dans la liste du fichier destinations.dart alors La carte sera crée automatiquement. //
+
+**Palier 5**
+// Q9 : sans setState, dans l'écran ne change pas et dans la mémoire la variable contient la nouvelle valeur mais n'appelle pas build. //
+// Q10 : ... //
+// Q11 : herobanner n'a aucune donnée qui change , il affiche destinations.first, l'état Homescreen change. //

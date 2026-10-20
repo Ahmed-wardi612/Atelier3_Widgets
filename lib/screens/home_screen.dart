@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
 import '../data/destinations.dart';
+import '../models/destination.dart';
 import '../widgets/destination_card.dart';
 import '../widgets/hero_banner.dart';
 import '../widgets/home_header.dart';
 import '../widgets/search_box.dart';
 import '../widgets/section_title.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  String _categorie = 'Tout';
+
+  List<Destination> get _filtrees {
+    if (_categorie == 'Tout') return destinations;
+    return destinations.where((d) => d.categorie == _categorie).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +37,30 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 24),
             const SectionTitle(titre: 'Catégories'),
             const SizedBox(height: 12),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  for (final c in categories)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: ChoiceChip(
+                        label: Text(c),
+                        selected: _categorie == c,
+                        onSelected: (_) {
+                          setState(() {
+                            _categorie = c;
+                          });
+                        },
+                      ),
+                    ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 24),
             const SectionTitle(titre: 'Populaires', action: 'Voir tout'),
             const SizedBox(height: 12),
-            for (final d in destinations) DestinationCard(destination: d),
+            for (final d in _filtrees) DestinationCard(destination: d),
           ],
         ),
       ),
