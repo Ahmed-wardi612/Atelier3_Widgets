@@ -60,7 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 24),
             const SectionTitle(titre: 'Populaires', action: 'Voir tout'),
             const SizedBox(height: 12),
-            for (final d in _filtrees) DestinationCard(destination: d),
+            // sans clé Quand le filtre change la liste, l'état reste à la même position
+            // et le cœur se retrouve sur une autre carte. et avec clé chaque carte garde la bonne destination.
+            for (final d in _filtrees)
+              DestinationCard(key: ValueKey(d.nom), destination: d),
           ],
         ),
       ),
