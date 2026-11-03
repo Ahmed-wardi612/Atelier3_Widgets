@@ -36,3 +36,9 @@
 // Q2 : inputFormatters filtre la frappe en direct. validator vérifie la valeur finale quand on appelle validate() et affiche le message d'erreur.
 
 // Q3 : un TextEditingController garde des ressources. dispose() les libère quand l'écran est détruit : sans cela, fuite de mémoire.
+
+**Palier 4**
+// Q1 Avec readOnly + showDatePicker, la valeur est toujours une vraie date comprise dans la période autorisée. sinon Sans readOnly, l'utilisateur
+// pourrait taper une date invalide.
+
+// Q2 : Quand setState change _formule, build() est rappelé et lit _total avec la nouvelle formule.
