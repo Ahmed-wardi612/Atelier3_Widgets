@@ -42,3 +42,10 @@
 // pourrait taper une date invalide.
 
 // Q2 : Quand setState change _formule, build() est rappelé et lit _total avec la nouvelle formule.
+
+**Palier 5**
+  // Q1 : si l'utilisateur quitte le formulaire avec la flèche retour, pop est appelé sans valeur : reservation vaut null.
+
+  // Q2 : après un await, l'écran a pu être fermé entre-temps. Sans le test mounted, VS Code avertit  : utilisercontext sur un écran qui n'existe plus peut provoquer une erreur.
+
+  // Q3 : une boîte de dialogue est elle aussi une route posée sur la pile de navigation, comme un écran : on la ferme avec Navigator.pop.
