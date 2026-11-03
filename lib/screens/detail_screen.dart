@@ -15,7 +15,6 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   int _voyageurs = 2;
-
   Future<void> _reserver() async {
     final reservation = await Navigator.push<Reservation>(
       context,
@@ -52,7 +51,6 @@ class _DetailScreenState extends State<DetailScreen> {
 
   Widget _tuile(IconData icone, String libelle, String valeur) {
     final cs = Theme.of(context).colorScheme;
-
     return Expanded(
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 14),
@@ -88,7 +86,10 @@ class _DetailScreenState extends State<DetailScreen> {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                Image.asset(d.image, fit: BoxFit.cover),
+                Hero(
+                  tag: 'image-${d.nom}',
+                  child: Image.asset(d.image, fit: BoxFit.cover),
+                ),
                 Positioned(
                   top: haut,
                   left: 16,
