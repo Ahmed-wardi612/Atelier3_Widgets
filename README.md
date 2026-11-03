@@ -17,3 +17,13 @@
 // Q9 : sans setState, dans l'écran ne change pas et dans la mémoire la variable contient la nouvelle valeur mais n'appelle pas build. //
 // Q10 : ... //
 // Q11 : herobanner n'a aucune donnée qui change , il affiche destinations.first, l'état Homescreen change. //
+
+
+> // Questions d'Atelier 4 //
+
+**Palier 2**
+// Q1 : oui, le filtre est conservé. Navigator gère une pile d'écrans : push pose DetailScreen par-dessus HomeScreen,pop retire le détail et on retrouve HomeScreen tel qu'il était. //
+
+// Q2 : DetailScreen reçoit la destination par son constructeur, le mécanisme est un widget reçoit ses données par des paramètres final.
+
+// Q3 : sans clipBehavior, l'effet (ripple) déborde des coins arrondis de la carte : on voit des coins carrés au moment du toucher.

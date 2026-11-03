@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/destination.dart';
+import '../screens/detail_screen.dart';
 import 'favorite_button.dart';
 
 class DestinationCard extends StatelessWidget {
@@ -17,60 +18,71 @@ class DestinationCard extends StatelessWidget {
       color: cs.surfaceContainerLow,
       margin: const EdgeInsets.only(bottom: 12),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(14),
-              child: Image.asset(
-                destination.image,
-                width: 88,
-                height: 88,
-                fit: BoxFit.cover,
-              ),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailScreen(destination: destination),
             ),
-            const SizedBox(width: 14),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    destination.nom,
-                    style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 4),
-                  Row(
-                    children: [
-                      Icon(Icons.place_outlined, size: 16, color: cs.onSurfaceVariant),
-                      const SizedBox(width: 4),
-                      Text(
-                        destination.region,
-                        style: theme.textTheme.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      const Icon(Icons.star, size: 16, color: Colors.amber),
-                      const SizedBox(width: 4),
-                      Text('${destination.note}'),
-                      const Spacer(),
-                      Text(
-                        '${destination.prix} DT',
-                        style: theme.textTheme.titleSmall?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: cs.primary,
+          );
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(14),
+                child: Image.asset(
+                  destination.image,
+                  width: 88,
+                  height: 88,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      destination.nom,
+                      style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 4),
+                    Row(
+                      children: [
+                        Icon(Icons.place_outlined, size: 16, color: cs.onSurfaceVariant),
+                        const SizedBox(width: 4),
+                        Text(
+                          destination.region,
+                          style: theme.textTheme.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        const Icon(Icons.star, size: 16, color: Colors.amber),
+                        const SizedBox(width: 4),
+                        Text('${destination.note}'),
+                        const Spacer(),
+                        Text(
+                          '${destination.prix} DT',
+                          style: theme.textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: cs.primary,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const FavoriteButton(),
-          ],
+              const FavoriteButton(),
+            ],
+          ),
         ),
       ),
     );

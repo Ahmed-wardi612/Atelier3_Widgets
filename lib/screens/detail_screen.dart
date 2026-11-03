@@ -62,7 +62,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       shape: BoxShape.circle,
                     ),
                     child: IconButton(
-                      onPressed: () => Navigator.maybePop(context),
+                      onPressed: () => Navigator.pop(context),
                       icon: const Icon(Icons.arrow_back),
                     ),
                   ),
