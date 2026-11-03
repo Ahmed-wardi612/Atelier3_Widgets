@@ -27,3 +27,12 @@
 // Q2 : DetailScreen reçoit la destination par son constructeur, le mécanisme est un widget reçoit ses données par des paramètres final.
 
 // Q3 : sans clipBehavior, l'effet (ripple) déborde des coins arrondis de la carte : on voit des coins carrés au moment du toucher.
+
+
+**Palier 3**
+// Q1 : appelle le validator de chaque champ du Form, affiche les messages d'erreur sous les champs invalides et renvoie true si tous
+// les validateurs renvoient null, sinon false.
+
+// Q2 : inputFormatters filtre la frappe en direct. validator vérifie la valeur finale quand on appelle validate() et affiche le message d'erreur.
+
+// Q3 : un TextEditingController garde des ressources. dispose() les libère quand l'écran est détruit : sans cela, fuite de mémoire.
