@@ -36,4 +36,17 @@ class ApiService {
     final Map<String, dynamic> creee = jsonDecode(utf8.decode(reponse.bodyBytes));
     return creee['id'].toString();
   }
+
+  static Future<List<Reservation>> getReservations() async {
+    final reponse = await http
+        .get(_url('/reservations?_embed=destination'))
+        .timeout(ApiConfig.timeout);
+
+    if (reponse.statusCode != 200) {
+      throw Exception('Erreur ${reponse.statusCode}');
+    }
+
+    final List<dynamic> liste = jsonDecode(utf8.decode(reponse.bodyBytes));
+    return liste.map((e) => Reservation.fromJson(e)).toList();
+  }
 }
