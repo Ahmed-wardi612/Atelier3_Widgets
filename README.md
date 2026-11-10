@@ -44,8 +44,32 @@
 // Q2 : Quand setState change _formule, build() est rappelé et lit _total avec la nouvelle formule.
 
 **Palier 5**
-  // Q1 : si l'utilisateur quitte le formulaire avec la flèche retour, pop est appelé sans valeur : reservation vaut null.
+// Q1 : si l'utilisateur quitte le formulaire avec la flèche retour, pop est appelé sans valeur : reservation vaut null.
 
-  // Q2 : après un await, l'écran a pu être fermé entre-temps. Sans le test mounted, VS Code avertit  : utilisercontext sur un écran qui n'existe plus peut provoquer une erreur.
+// Q2 : après un await, l'écran a pu être fermé entre-temps. Sans le test mounted, VS Code avertit  : utilisercontext sur un écran qui n'existe plus peut provoquer une erreur.
 
-  // Q3 : une boîte de dialogue est elle aussi une route posée sur la pile de navigation, comme un écran : on la ferme avec Navigator.pop.
+// Q3 : une boîte de dialogue est elle aussi une route posée sur la pile de navigation, comme un écran : on la ferme avec Navigator.pop.
+
+
+> // Questions d'Atelier 5 //
+
+**Palier 0**
+// Q1 /destinations/99 renvoie 404 Not Found,la ressource demandée n’existe pas.
+
+// Q2 L’id de la réservation a été choisi par le serveur json-server l’a généré et renvoyé.
+
+// Q3 Le GET n’a pas de corps car il ne fait que demander des données . Le POST doit envoyer les données de la nouvelle réservation, donc il a un corps JSON.
+
+**Palier 2**
+// Q1 : Un constructeur factory crée et retourne un objet. On l'appelle directement avec le nom de la classe.
+
+// Q2 : "420" est un String et non un nombre. Donc, la conversion provoque une erreur (TypeError).
+
+// Q3 : Future permet d'attendre une réponse qui prend du temps (comme une réponse du serveur) sans bloquer l'application. await récupère le résultat quand il est prêt.
+
+**Palier 3**
+// Q1 : après la création de l'objet. late promet à Dart qu'elle sera initialisée avant son premier usage, sans la rendre nullable.
+
+// Q2 : sans le test snapshot.hasError, snapshot.data null quand le serveur est arrêté, et snapshot.data!
+
+// Q3 : non. setState relance build(), mais FutureBuilder réutilise le même _futurDestinations, déjà terminé
