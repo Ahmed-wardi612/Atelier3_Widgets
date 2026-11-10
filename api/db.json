@@ -67,5 +67,18 @@
       "description": "Médina fortifiée au bord de la mer, jardins de jasmin et longues plages : la station balnéaire historique du Cap Bon."
     }
   ],
-  "reservations": []
+  "reservations": [
+    {
+      "destinationId": "1",
+      "nom": "Ahmed",
+      "email": "ahmed@gmail.com",
+      "telephone": "23456789",
+      "dateDepart": "2026-11-20T00:00:00.000",
+      "voyageurs": 2,
+      "formule": "Confort",
+      "total": 468,
+      "id": "ZtQdTv4NaIo"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

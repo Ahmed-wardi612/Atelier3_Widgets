@@ -3,6 +3,7 @@ import '../models/destination.dart';
 import '../models/reservation.dart';
 import '../widgets/favorite_button.dart';
 import 'reservation_screen.dart';
+import '../services/api_service.dart';
 
 class DetailScreen extends StatefulWidget {
   final Destination destination;
@@ -27,6 +28,22 @@ class _DetailScreenState extends State<DetailScreen> {
     );
     if (reservation == null) return;
     if (!mounted) return;
+
+    final String id;
+    try {
+      id = await ApiService.creerReservation(reservation);
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('Envoi impossible : json-server est-il lancé ?'),
+          backgroundColor: Theme.of(context).colorScheme.error,
+        ),
+      );
+      return;
+    }
+
+    if (!mounted) return;
     await showDialog<void>(
       context: context,
       builder: (context) => AlertDialog(
@@ -37,6 +54,7 @@ class _DetailScreenState extends State<DetailScreen> {
           'est réservé pour ${reservation.voyageurs} voyageur(s), '
           'formule ${reservation.formule}.\n\n'
           'Total : ${reservation.total} DT\n'
+          'N° de réservation : $id\n'
           'Un e-mail de confirmation sera envoyé à ${reservation.email}.',
         ),
         actions: [

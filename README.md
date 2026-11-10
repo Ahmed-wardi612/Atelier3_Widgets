@@ -73,3 +73,10 @@
 // Q2 : sans le test snapshot.hasError, snapshot.data null quand le serveur est arrêté, et snapshot.data!
 
 // Q3 : non. setState relance build(), mais FutureBuilder réutilise le même _futurDestinations, déjà terminé
+
+**Plaier 4**
+// Q1 : On utilise l'ID pour identifier la destination sans répéter toutes ses informations.
+
+// Q2 : Sans Content-Type: application/json, le serveur ne reconnaît pas les données comme JSON.
+
+// Q3 : mounted vérifie si l'écran existe encore après await, pour éviter les erreurs.
