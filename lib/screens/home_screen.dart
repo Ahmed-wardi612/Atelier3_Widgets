@@ -8,6 +8,9 @@ import '../widgets/home_header.dart';
 import '../widgets/search_box.dart';
 import '../widgets/section_title.dart';
 import 'mes_reservations_screen.dart';
+import 'package:provider/provider.dart';
+import '../providers/favoris_model.dart';
+import 'favoris_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -113,9 +116,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final nombre = context.watch<FavorisModel>().nombre;
+
     return Scaffold(
       body: switch (_onglet) {
         0 => _construireExplorer(),
+        1 => const FavorisScreen(),
         2 => const MesReservationsScreen(),
         _ => const Center(child: Text('Bientôt disponible')),
       },
@@ -126,18 +132,26 @@ class _HomeScreenState extends State<HomeScreen> {
             _onglet = i;
           });
         },
-        destinations: const [
-          NavigationDestination(
+        destinations: [
+          const NavigationDestination(
             icon: Icon(Icons.explore_outlined),
             selectedIcon: Icon(Icons.explore),
             label: 'Explorer',
           ),
           NavigationDestination(
-            icon: Icon(Icons.favorite_border),
-            selectedIcon: Icon(Icons.favorite),
+            icon: Badge(
+              label: Text('$nombre'),
+              isLabelVisible: nombre > 0,
+              child: const Icon(Icons.favorite_border),
+            ),
+            selectedIcon: Badge(
+              label: Text('$nombre'),
+              isLabelVisible: nombre > 0,
+              child: const Icon(Icons.favorite),
+            ),
             label: 'Favoris',
           ),
-          NavigationDestination(
+          const NavigationDestination(
             icon: Icon(Icons.luggage_outlined),
             selectedIcon: Icon(Icons.luggage),
             label: 'Voyages',
