@@ -90,3 +90,8 @@
 // Q2 : Par id plutôt que Set<Destination> : la liste est rechargée depuis json-server, donc ce sont de nouveaux objets à chaque chargement. L’id reste identique, alors qu’un Set comparerait des objets différents et ne retrouverait plus les favoris.//
 
 // Q3 : Perdus après un hot restart : le modèle est en mémoire seulement. Le restart relance l’application, donc un nouveau FavorisModel vide. //
+
+**Partie 4**
+// Q1 : La Partie 3 n'a produit aucun conflit parce que les modifications effectuées dans les deux branches ne concernaient pas les mêmes lignes du code. Git a donc pu fusionner automatiquement les modifications.
+
+// Q2 : Si on oublie de supprimer le marqueur =======, le code Dart devient invalide. Cela provoque une erreur de compilation et l'application Flutter ne peut pas s'exécuter correctement.
