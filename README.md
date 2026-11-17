@@ -80,3 +80,13 @@
 // Q2 : Sans Content-Type: application/json, le serveur ne reconnaît pas les données comme JSON.
 
 // Q3 : mounted vérifie si l'écran existe encore après await, pour éviter les erreurs.
+
+
+> // Questions d'Atelier 6 //
+
+**Partie 2**
+// Q1 : Stateless alors que l’affichage change : le bouton ne garde plus rien en mémoire. L’état est dans FavorisModel ; avec watch, le bouton est reconstruit quand le modèle change.
+
+// Q2 : Par id plutôt que Set<Destination> : la liste est rechargée depuis json-server, donc ce sont de nouveaux objets à chaque chargement. L’id reste identique, alors qu’un Set comparerait des objets différents et ne retrouverait plus les favoris.//
+
+// Q3 : Perdus après un hot restart : le modèle est en mémoire seulement. Le restart relance l’application, donc un nouveau FavorisModel vide. //
