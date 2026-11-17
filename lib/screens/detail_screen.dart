@@ -131,7 +131,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       color: Colors.white,
                       shape: BoxShape.circle,
                     ),
-                    child: const FavoriteButton(),
+                    child: FavoriteButton(destination: d),
                   ),
                 ),
               ],
