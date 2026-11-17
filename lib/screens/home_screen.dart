@@ -154,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
           const NavigationDestination(
             icon: Icon(Icons.luggage_outlined),
             selectedIcon: Icon(Icons.luggage),
-            label: 'Réservations',
+            label: 'Voyages',
           ),
         ],
       ),
