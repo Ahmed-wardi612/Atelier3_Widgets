@@ -11,6 +11,7 @@ import 'mes_reservations_screen.dart';
 import 'package:provider/provider.dart';
 import '../providers/favoris_model.dart';
 import 'favoris_screen.dart';
+import '../providers/reglages_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -117,8 +118,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final nombre = context.watch<FavorisModel>().nombre;
+    final sombre = context.watch<ReglagesModel>().sombre;
 
     return Scaffold(
+      appBar: _onglet == 0
+          ? AppBar(
+              title: const Text('Rihla'),
+              actions: [
+                IconButton(
+                  tooltip: 'Changer de thème',
+                  onPressed: () => context.read<ReglagesModel>().basculerTheme(),
+                  icon: Icon(sombre ? Icons.light_mode : Icons.dark_mode),
+                ),
+              ],
+            )
+          : null,
       body: switch (_onglet) {
         0 => _construireExplorer(),
         1 => const FavorisScreen(),
@@ -161,7 +175,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
 class ErreurReseau extends StatelessWidget {
   final String message;
   final VoidCallback onReessayer;
