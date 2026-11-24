@@ -95,3 +95,15 @@
 // Q1 : La Partie 3 n'a produit aucun conflit parce que les modifications effectuées dans les deux branches ne concernaient pas les mêmes lignes du code. Git a donc pu fusionner automatiquement les modifications.
 
 // Q2 : Si on oublie de supprimer le marqueur =======, le code Dart devient invalide. Cela provoque une erreur de compilation et l'application Flutter ne peut pas s'exécuter correctement.
+
+> // Questions d'Atelier 7 //
+
+**Partie 1**
+
+// Q1 : parce que shared_preferences ne peut pas enregistrer directement des objets. Il accepte seulement des types simples.
+
+// Q2 : il crée le modèle, appelle charger() et retourne le modèle lui même.
+
+// Q3 : parce que charger() retourne un Future<void> au lieu du modèle FavorisModel cela provoque une erreur.
+
+// Q4 : parce que l'application ne sera pas informé que les favoris sont chargés. Les coeurs resteront vides et le badge à 0.
