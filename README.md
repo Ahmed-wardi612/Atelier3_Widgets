@@ -107,3 +107,11 @@
 // Q3 : parce que charger() retourne un Future<void> au lieu du modèle FavorisModel cela provoque une erreur.
 
 // Q4 : parce que l'application ne sera pas informé que les favoris sont chargés. Les coeurs resteront vides et le badge à 0.
+
+**Partie 3**
+
+//Q1 : pour éviter de sauvegarder une réponse incorrecte (404 ou 500) et perdre les bonnes données.
+
+//Q2 : il voit un écran d'erreur avec le bouton  Réessayer  car aucune donnée n'est encore sauvegardée.
+
+//Q3 : rethrow relance l'erreur Le FutureBuilder la récupère et affiche ErreurReseau.
